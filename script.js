@@ -325,7 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ... rest of your code
 });
   window.addEventListener("load", () => {
     const hero = document.querySelector(".hero-content");
@@ -394,7 +393,62 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "index.html";
   });
 
+const section = document.querySelector('.impact-section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            animateCounters();
+            counters.forEach(c => c.classList.add('visible'));
+          }
+        });
+      }, { threshold: 0.3 });
 
+      observer.observe(section);
 
+const counters = document.querySelectorAll('.counter');
+      let started = false;
+
+      function animateCounters() {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const speed = 50;
+
+          const updateCount = () => {
+            const value = +counter.innerText.replace(/\D/g, '');
+            const increment = target / 100;
+
+            if (value < target) {
+              counter.innerText = Math.ceil(value + increment);
+              setTimeout(updateCount, speed);
+            } else {
+              counter.innerText = target.toLocaleString() + (counter.dataset.target >= 1000 ? '+' : '');
+            }
+          };
+
+          updateCount();
+        });
+      }
+
+          // Captcha sederhana
+    document.getElementById("submitBtn").addEventListener("click", function(e) {
+      e.preventDefault();
+      const answer = document.getElementById("captchaAnswer").value;
+      if (answer == 22) {
+        alert("Terima kasih! Pesan Anda telah dikirim 🌱");
+        document.querySelector(".contact-form").reset();
+      } else {
+        alert("Captcha salah! Coba lagi.");
+      }
+    });
+
+    // Animasi masuk halus
+    window.addEventListener("load", () => {
+      document.querySelector(".contact-section").style.opacity = "0";
+      setTimeout(() => {
+        document.querySelector(".contact-section").style.transition = "all 1s ease";
+        document.querySelector(".contact-section").style.opacity = "1";
+      }, 300);
+    });
 /* ===== Safe Log ===== */
 console.log('%cTreeVerse v2.0 Loaded 🌳', 'color:green;font-weight:bold;');

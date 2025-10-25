@@ -115,7 +115,7 @@ span {
 }
 
 .btn-profile {
-  background: linear-gradient(135deg, #0b5d3b) !important;
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
   border: none !important;
   border-radius: 8px !important;
   padding: 10px 20px !important;
@@ -1012,4 +1012,3 @@ text-align: center;
 .fade-left { transform: translateX(-60px); }
 .fade-right { transform: translateX(60px); }
 .visible.fade-left, .visible.fade-right { transform: translateX(0); opacity: 1; }
-
