@@ -430,18 +430,6 @@ const counters = document.querySelectorAll('.counter');
         });
       }
 
-          // Captcha sederhana
-    document.getElementById("submitBtn").addEventListener("click", function(e) {
-      e.preventDefault();
-      const answer = document.getElementById("captchaAnswer").value;
-      if (answer == 22) {
-        alert("Terima kasih! Pesan Anda telah dikirim 🌱");
-        document.querySelector(".contact-form").reset();
-      } else {
-        alert("Captcha salah! Coba lagi.");
-      }
-    });
-
     // Animasi masuk halus
     window.addEventListener("load", () => {
       document.querySelector(".contact-section").style.opacity = "0";
